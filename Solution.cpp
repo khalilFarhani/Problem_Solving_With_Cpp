@@ -3160,6 +3160,19 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return v;
    }
 
+   // problem 143 : You are given an integer array nums. In one move, you can choose one element of nums and change it to any value.
+   // Return the minimum difference between the largest and smallest value of nums after performing at most three moves.
+   int minDifference(vector<int>& nums) {
+       if (nums.size() < 5)
+           return 0;
+       sort(nums.begin(), nums.end());
+       int ans = INT_MAX;
+       for (int i = 0; i < 4; i++) {
+           ans = min(nums[nums.size() - 1 - 3 + i] - nums[i], ans);
+       }
+       return ans;
+   }
+
 };
 
 
