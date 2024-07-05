@@ -3220,6 +3220,53 @@ int islandPerimeter(vector<vector<int>>& grid) {
 
    }
 
+   // problem 146 : leetcode problem 2058. Find the Minimum and Maximum Number of Nodes Between Critical Points
+   vector<int> nodesBetweenCriticalPoints(ListNode* head) {
+       int mn = -1;
+       int bg = -1;
+       int nbCr = 0;
+       bool tst = false;
+       int first = -1;
+       int last = 0;
+       vector<int> ans;
+       ListNode* prev = head;
+       ListNode* tmp = head->next;
+       int i = 1;
+       while (tmp->next) {
+           if ((tmp->next->val > tmp->val && prev->val > tmp->val) || (tmp->next->val < tmp->val && prev->val < tmp->val)) {
+               nbCr++;
+               if (first == -1) {
+                   first = i;
+               }
+               last = i;
+               if (!tst) {
+                   tst = true;
+               }
+               else {
+                   if (mn == -1) {
+                       mn = i - bg;
+                   }
+                   else
+                       mn = min(mn, i - bg);
+               }
+               bg = i;
+           }
+
+           prev = tmp;
+           tmp = tmp->next;
+           i++;
+       }
+       if (nbCr < 2) {
+           ans.push_back(-1);
+           ans.push_back(-1);
+       }
+       else {
+           ans.push_back(mn);
+           ans.push_back(last - first);
+       }
+       return ans;
+   }
+
 };
 
 
