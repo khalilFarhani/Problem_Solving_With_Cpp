@@ -3267,6 +3267,30 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return ans;
    }
 
+   // problem 147 : leetcode problem 1823. Find the Winner of the Circular Game
+   int findTheWinner(int n, int k) {
+       vector<int>v;
+       for (int i = 1; i <= n; i++) {
+           v.push_back(i);
+       }
+       int i = 1;
+       int pos = 0;
+       while (v.size() != 1) {
+           if (i == k) {
+               v.erase(v.begin() + pos);
+               i = 1;
+           }
+           else {
+               i++;
+               pos++;
+           }
+           if (pos == v.size()) {
+               pos = 0;
+           }
+       }
+       return v[0];
+   }
+
 };
 
 
