@@ -3291,6 +3291,20 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return v[0];
    }
 
+   // problem 148 : leetcode problem 1701. Average Waiting Time
+   double averageWaitingTime(vector<vector<int>>& customers) {
+       int val = 0;
+       long long sum = 0;
+       for (int i = 0; i < customers.size(); i++) {
+
+           val = max(val, customers[i][0]);
+           val += customers[i][1];
+           sum += (val - customers[i][0]);
+       }
+       double averageWaitTime = static_cast<double>(sum) / customers.size();
+       return averageWaitTime;
+   }
+
 };
 
 
