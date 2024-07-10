@@ -3305,6 +3305,24 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return averageWaitTime;
    }
 
+   // problem 149 : leetcode problem 1598. Crawler Log Folder
+   int minOperations(vector<string>& logs) {
+       int ans = 0;
+       for (string& i : logs) {
+           if (i == "../") {
+               if (ans > 0)
+                   ans--;
+           }
+           else if (i == "./") {
+               continue;
+           }
+           else {
+               ans++;
+           }
+       }
+       return ans;
+   }
+
 };
 
 
