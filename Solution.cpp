@@ -3323,6 +3323,32 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return ans;
    }
 
+   // problem 150 : You are given a string s that consists of lower case English letters and brackets. 
+   // Reverse the strings in each pair of matching parentheses, starting from the innermost one. Your result should not contain any brackets.
+   string reverseParentheses(string s) {
+       stack<int> st;
+       int n = s.length();
+       for (int i = 0; i < n; i++) {
+           if (s[i] == '(') {
+               st.push(i);
+           }
+           else if (s[i] == ')') {
+               int start = st.top() + 1;
+               int end = i;
+               reverse(s.begin() + start, s.begin() + end);
+               st.pop();
+           }
+       }
+       string ans = "";
+       for (int i = 0; i < n; i++) {
+           if (s[i] == '(' || s[i] == ')')
+               continue;
+           else
+               ans += s[i];
+       }
+       return ans;
+   }
+
 };
 
 
