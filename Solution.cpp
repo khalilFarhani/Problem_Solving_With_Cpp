@@ -3349,6 +3349,20 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return ans;
    }
 
+   // problem 151 : You are given an array of strings names, and an array heights that consists of distinct positive integers. Both arrays are of length n.
+   // For each index i, names[i] and heights[i] denote the name and height of the ith person. Return names sorted in descending order by the people's heights.
+   vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+       map<int, int, greater<int>>mp;
+       vector<string>ans;
+       for (int i = 0; i < heights.size(); i++) {
+           mp[heights[i]] = i;
+       }
+       for (auto it = mp.begin(); it != mp.end(); it++) {
+           ans.push_back(names[it->second]);
+       }
+       return ans;
+   }
+
 };
 
 
