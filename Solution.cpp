@@ -3363,6 +3363,21 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return ans;
    }
 
+   //problem 152 : you will be given an array of numbers in which two numbers occur once and the rest occur only twice. Your task will be to return the sum of the numbers that occur only once.
+   int repeats(std::vector<int>v) {
+       std::unordered_map<int, int> mp;
+       for (int i : v) {
+           mp[i]++;
+       }
+       int ans = 0;
+       for (int i : v) {
+           if (mp[i] == 1) {
+               ans += i;
+           }
+       }
+       return ans;
+   }
+
 };
 
 
