@@ -3408,6 +3408,30 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return nums;
    }
 
+   //problem 155 : leetcode 2191. Sort the Jumbled Numbers
+   vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) {
+       multimap<int, int>mp;
+       for (int& val : nums) {
+           if (val == 0) {
+               mp.insert({ mapping[0], val });
+               continue;
+           }
+           string str = "";
+           int tmp = val;
+           while (tmp > 0) {
+               int i = tmp % 10;
+               tmp /= 10;
+               str = char(mapping[i] + 48) + str;
+           }
+           mp.insert({ stoi(str),val });
+       }
+       vector<int>ans;
+       for (auto& it : mp) {
+           ans.push_back(it.second);
+       }
+       return ans;
+   }
+
 };
 
 
