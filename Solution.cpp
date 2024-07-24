@@ -3447,6 +3447,16 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return ans;
    };
 
+   //problem 157 : Given an array representing a series of floors you must reach by elevator, return an integer representing the total distance travelled for visiting each floor in the array in order.
+   int elevator_distance(vector<int> array) {
+       int ans = 0;
+       for (int i = 1; i < array.size(); i++) {
+           ans += abs(array[i] - array[i - 1]);
+       }
+       return ans;
+   }
+
+
 };
 
 
