@@ -3468,6 +3468,19 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return ans;
    }
 
+   //problem 159 : Given an array of numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will be not empty and will contain at least "number" even numbers.
+   vector<int> evenNumbers(vector<int> arr, int n) {
+       int i = arr.size() - 1;
+       vector<int>ans;
+       while (i >= 0 && n) {
+           if (abs(arr[i]) % 2 == 0) {
+               ans.insert(ans.begin(), arr[i]);
+               n--;
+           }
+           i--;
+       }
+       return ans;
+   }
 
 };
 
