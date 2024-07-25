@@ -3456,6 +3456,18 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return ans;
    }
 
+   //problem 158 : Complete the function to find the count of the most frequent item of an array. You can assume that input is an array of integers. For an empty array return 0
+   unsigned int most_frequent_item_count(const vector<int>& collection) {
+       map<int, int>mp;
+       unsigned int ans = 0;
+       for (const int i : collection) {
+           mp[i]++;
+           if (mp[i] > ans)
+               ans = mp[i];
+       }
+       return ans;
+   }
+
 
 };
 
