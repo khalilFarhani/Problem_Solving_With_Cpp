@@ -3482,6 +3482,23 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return ans;
    }
 
+   //problem 160 : leetcode 657. Robot Return to Origin
+   bool judgeCircle(string moves) {
+       int hor = 0;
+       int ver = 0;
+       for (char& c : moves) {
+           if (c == 'L')
+               hor--;
+           else if (c == 'R')
+               hor++;
+           else if (c == 'U')
+               ver++;
+           else
+               ver--;
+       }
+       return (hor == 0 && ver == 0);
+   }
+
 };
 
 
