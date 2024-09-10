@@ -3499,6 +3499,26 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return (hor == 0 && ver == 0);
    }
 
+   //problem 161 : leetcode 2807. Insert Greatest Common Divisors in Linked List
+   int GreatestCommonDivisor(int a, int b) {
+       int mn = min(a, b);
+       int result = 1;
+       for (int i = mn; i > 1; i--) {
+           if (a % i == 0 && b % i == 0)
+               return i;
+       }
+       return result;
+   }
+   ListNode* insertGreatestCommonDivisors(ListNode* head) {
+       ListNode* curr = head;
+       while (curr->next) {
+           ListNode* next = curr->next;
+           ListNode* newNode = new ListNode(GreatestCommonDivisor(next->val, curr->val), next);
+           curr->next = newNode;
+           curr = next;
+       }
+       return head;
+   }
 };
 
 
