@@ -3519,6 +3519,21 @@ int islandPerimeter(vector<vector<int>>& grid) {
        }
        return head;
    }
+
+   //problem 162 : leetcode 448. Find All Numbers Disappeared in an Array
+   vector<int> findDisappearedNumbers(vector<int>& nums) {
+       vector<int> tmp(nums.size(), 1);
+       vector<int> ans;
+       for (int i = 0; i < nums.size(); i++) {
+           tmp[nums[i] - 1] = 0;
+       }
+       for (int i = 0; i < tmp.size(); i++) {
+           if (tmp[i] != 0) {
+               ans.push_back(i + 1);
+           }
+       }
+       return ans;
+   }
 };
 
 
