@@ -3534,6 +3534,40 @@ int islandPerimeter(vector<vector<int>>& grid) {
        }
        return ans;
    }
+
+   //problem 163 : leetcode 2490. Circular Sentence
+   bool isCircularSentence(string sentence) {
+       string wd = "";
+       vector<string>words;
+       for (int i = 0; i < sentence.length(); i++) {
+           if (sentence[i] == ' ') {
+               words.push_back(wd);
+               wd = "";
+           }
+           else {
+               wd += sentence[i];
+           }
+       }
+       words.push_back(wd);
+       if (words.size() == 1) {
+           return (words[0][0] == words[0][words[0].size() - 1]);
+       }
+       else {
+           if (words[words.size() - 1][words[words.size() - 1].size() - 1] != words[0][0]) {
+               return false;
+           }
+       }
+       int i = 0;
+       while (i < words.size() - 1) {
+           if (words[i][words[i].length() - 1] != words[i + 1][0]) {
+               return false;
+           }
+           i++;
+       }
+       return true;
+   }
+
+
 };
 
 
