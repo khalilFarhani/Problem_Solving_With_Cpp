@@ -3567,6 +3567,18 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return true;
    }
 
+   
+   //problem 164 : leetcode 796. Rotate String
+   bool rotateString(string s, string goal) {
+       int len = s.size();
+       while (len--) {
+           char firstChar = s[0];
+           s = s.substr(1) + firstChar;
+           if (s == goal) return true;
+       }
+       return false;
+   }
+
 
 };
 
