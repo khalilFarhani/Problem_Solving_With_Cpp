@@ -3580,6 +3580,24 @@ int islandPerimeter(vector<vector<int>>& grid) {
    }
 
 
+   //problem 164 : leetcode 3163. String Compression III
+   string compressedString(string word) {
+       string str = "";
+       int i = 0;
+       while (i < word.size()) {
+           int s = 1;
+           while (word[i] == word[++i] && s < 9) {
+               s++;
+           }
+           str += to_string(s);
+           char c = word[i - 1];
+           str += c;
+       }
+       return str;
+   }
+
+
+
 };
 
 
