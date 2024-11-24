@@ -3617,6 +3617,32 @@ int islandPerimeter(vector<vector<int>>& grid) {
    }
 
 
+   //problem 167 : leetcode 884. Uncommon Words from Two Sentences 
+   vector<string> uncommonFromSentences(string s1, string s2) {
+       unordered_map<string, int> words;
+       vector<string> ans;
+
+       istringstream stream1(s1);
+       istringstream stream2(s2);
+       string word;
+
+       while (stream1 >> word) {
+           words[word]++;
+       }
+
+       while (stream2 >> word) {
+           words[word]++;
+       }
+
+       for (auto it = words.begin(); it != words.end(); it++) {
+           if (it->second == 1) {
+               ans.push_back(it->first);
+           }
+       }
+       return ans;
+   }
+
+
 };
 
 
