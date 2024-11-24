@@ -3580,7 +3580,7 @@ int islandPerimeter(vector<vector<int>>& grid) {
    }
 
 
-   //problem 164 : leetcode 3163. String Compression III
+   //problem 165 : leetcode 3163. String Compression III
    string compressedString(string word) {
        string str = "";
        int i = 0;
@@ -3596,6 +3596,25 @@ int islandPerimeter(vector<vector<int>>& grid) {
        return str;
    }
 
+
+   //problem 166 : leetcode 832. Flipping an Image
+   int changeStatus(int valeur) {
+       return valeur == 0 ? 1 : 0;
+   }
+   vector<vector<int>> flipAndInvertImage(vector<vector<int>>& image) {
+       int n = image.size();
+       for (int i = 0; i < n; i++) {
+           for (int j = 0; j < n / 2; j++) {
+               int aux = changeStatus(image[i][n - j - 1]);
+               image[i][n - j - 1] = changeStatus(image[i][j]);
+               image[i][j] = aux;
+           }
+           if (n % 2 != 0) {
+               image[i][n / 2] = changeStatus(image[i][n / 2]);
+           }
+       }
+       return image;
+   }
 
 
 };
