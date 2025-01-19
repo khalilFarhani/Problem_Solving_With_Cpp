@@ -3643,6 +3643,24 @@ int islandPerimeter(vector<vector<int>>& grid) {
    }
 
 
+   //problem 168 : leetcode 905. Sort Array By Parity
+   vector<int> sortArrayByParity(vector<int>& nums) {
+       int i = 0, j = nums.size() - 1;
+       while (i < j) {
+           if (nums[i] % 2 != 0) {
+               int tmp = nums[i];
+               nums[i] = nums[j];
+               nums[j] = tmp;
+               j--;
+           }
+           else {
+               i++;
+           }
+       }
+       return nums;
+   }
+
+
 };
 
 
